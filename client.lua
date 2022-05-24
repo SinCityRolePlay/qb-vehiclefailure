@@ -40,12 +40,12 @@ local DamageComponents = {
 
 -- Functions
 
-local function DamageRandomComponent()
+--[[local function DamageRandomComponent()
 	local dmgFctr = math.random() + math.random(0, 2)
 	local randomComponent = DamageComponents[math.random(1, #DamageComponents)]
 	local randomDamage = (math.random() + math.random(0, 1)) * dmgFctr
 	exports['qb-mechanicjob']:SetVehicleStatus(QBCore.Functions.GetPlate(vehicle), randomComponent, exports['qb-mechanicjob']:GetVehicleStatus(QBCore.Functions.GetPlate(vehicle), randomComponent) - randomDamage)
-end
+end]]
 
 local function CleanVehicle(veh)
 	local ped = PlayerPedId()
@@ -627,13 +627,13 @@ CreateThread(function()
 			if healthEngineNew ~= healthEngineCurrent then
 				SetVehicleEngineHealth(vehicle, healthEngineNew)
 				local dmgFactr = (healthEngineCurrent - healthEngineNew)
-				if dmgFactr > 0.8 then
+				--[[if dmgFactr > 0.8 then
 					DamageRandomComponent()
-				end
+				end]]
 			end
 			if healthBodyNew ~= healthBodyCurrent then
 				SetVehicleBodyHealth(vehicle, healthBodyNew)
-				DamageRandomComponent()
+				--DamageRandomComponent()
 			end
 			if healthPetrolTankNew ~= healthPetrolTankCurrent then
 				SetVehiclePetrolTankHealth(vehicle, healthPetrolTankNew)
